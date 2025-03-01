@@ -1,0 +1,33 @@
+{
+  "Description": "Invia pacchetti a un server MQTT tramite WebSocket.", 
+  "Name": "iu2frl MQTT Stream Deck Client", 
+  "Category": "IU2FRL MQTT", 
+  "com.iu2frl.mqtt.btnAction": {
+    "Name": "Bottone MQTT", 
+    "Tooltip": "Invia pacchetto tramite MQTT"
+  },
+  "com.iu2frl.mqtt.knbAction": {
+    "Name": "Manopola MQTT", 
+    "Tooltip": "Invia pacchetto tramite MQTT"
+  },
+  "Localization": {
+    "MQTTSettings": "Importazioni MQTT",
+    "SaveSettings": "Salve impostazioni",
+    "Save": "Salva",
+    "Message1": "Tasto premuto",
+    "Message2": "Tasto rilasciato",
+    "Message3": "Manopola in senso orario",
+    "Message4": "Manopola in senso antiorario",
+    "Topic": "Topic",
+    "Payload": "Payload",
+    "ClientID": "Client ID",
+    "Use SSL": "Usa SSL",
+    "Yes": "Si",
+    "No": "No",
+    "Username": "Utente",
+    "Password": "Password",
+    "Port": "Porta",
+    "Broker": "Broker",
+    "Retain": "Retain"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Description": "Sende einfache Befehler per WS an euern MQTT Server", 
+  "Name": "iu2frl MQTT Stream Deck Client", 
+  "Category": "IU2FRL MQTT", 
+  "com.iu2frl.mqtt.btnAction": {
+    "Name": "MQTT Taste Aktion", 
+    "Tooltip": "Sende Befehl per MQTT"
+  },
+  "com.iu2frl.mqtt.knbAction": {
+    "Name": "MQTT Knopf Aktion", 
+    "Tooltip": "Sende Befehl per MQTT"
+  },
+  "Localization": {
+    "MQTTSettings": "MQTT Settings",
+    "SaveSettings": "Settings speichern",
+    "Save": "Speichern",
+    "Message1": "Taste gedrückt",
+    "Message2": "Taste losgelassen",
+    "Message3": "Knopf im Uhrzeigersinn",
+    "Message4": "Knopf gegen Uhrzeigersinn",
+    "Topic": "Topic",
+    "Payload": "Payload",
+    "ClientID": "Client ID",
+    "Use SSL": "SSL An",
+    "Yes": "Ja",
+    "No": "Nein",
+    "Username": "Username",
+    "Password": "Password",
+    "Port": "Port",
+    "Broker": "Broker",
+    "Retain": "Retain"
+  }
+}

@@ -1,0 +1,53 @@
+name: Build StreamDeck Plugin
+
+on:
+    release:
+        types: [created]
+
+jobs:
+    build:
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                fetch-depth: 0
+
+            - name: Get latest tag
+              id: get_version
+              shell: bash
+              run: |
+                VERSION=$(git describe --tags --abbrev=0)
+                VERSION=${VERSION#v}
+                echo "VERSION=$VERSION" >> $GITHUB_ENV
+                echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+            - name: Update manifest.json version
+              shell: pwsh
+              run: |
+                $manifestPath = "com.iu2frl.mqttsdPlugin/manifest.json"
+                $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+                $manifest.Version = "${{ env.VERSION }}"
+                $manifest | ConvertTo-Json -Depth 10 | Set-Content $manifestPath -Encoding UTF8
+
+            - name: Create StreamDeck plugin
+              shell: pwsh
+              run: |
+                # Create the plugin package (.streamDeckPlugin)
+                $folderToZip = "com.iu2frl.mqttsdPlugin"
+                $outputFile = "com.iu2frl.mqttsdPlugin-${{ env.VERSION }}.streamDeckPlugin"
+                
+                Compress-Archive -Path "$folderToZip\*" -DestinationPath "$outputFile" -Force
+                
+                # Create a regular zip for manual installation
+                $manualZip = "com.iu2frl.mqttsdPlugin-${{ env.VERSION }}-manual.zip"
+                Compress-Archive -Path "$folderToZip\*" -DestinationPath "$manualZip" -Force
+
+            - name: Upload plugin to release
+              uses: softprops/action-gh-release@v1
+              with:
+                files: |
+                    com.iu2frl.mqttsdPlugin-${{ steps.get_version.outputs.version }}.streamDeckPlugin
+                    com.iu2frl.mqttsdPlugin-${{ steps.get_version.outputs.version }}-manual.zip
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

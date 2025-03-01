@@ -1,0 +1,64 @@
+{
+    "Actions": [
+        {
+            "Icon": "images/action",
+            "Name": "IU2FRL MQTT over WebSocket",
+            "States": [
+                {
+                    "Image": "images/IU2FRL",
+                    "TitleAlignment": "middle",
+                    "FontSize": "16"
+                }
+            ],
+            "Controllers": [
+                "Keypad"
+            ],
+            "SupportedInMultiActions": true,
+            "PropertyInspectorPath": "property-inspector-button.html",
+            "Tooltip": "Send a MQTT message via WebSocket",
+            "UUID": "com.iu2frl.mqtt.btnAction"
+        },
+        {
+            "Icon": "images/action",
+            "Name": "IU2FRL MQTT over WebSocket",
+            "States": [
+                {
+                    "Image": "images/IU2FRL",
+                    "TitleAlignment": "middle",
+                    "FontSize": "16"
+                }
+            ],
+            "Controllers": [
+                "Knob"
+            ],
+            "SupportedInMultiActions": true,
+            "PropertyInspectorPath": "property-inspector-knob.html",
+            "Tooltip": "Send a MQTT message via WebSocket",
+            "UUID": "com.iu2frl.mqtt.knbAction"
+        }
+    ],
+    "SDKVersion": 2,
+    "Category": "MQTT",
+    "CategoryIcon": "images/IU2FRL",
+    "Author": "Luca Bennati",
+    "CodePath": "index.html",
+    "Description": "Small lightweight plugin to send MQTT messages via WebSocket",
+    "Name": "IU2FRL MQTT",
+    "Icon": "images/IU2FRL",
+    "URL": "https://github.com/iu2frl",
+    "Version": "0.1",
+    "OS": [
+        {
+            "Platform": "mac",
+            "MinimumVersion": "10.11"
+        },
+        {
+            "Platform": "windows",
+            "MinimumVersion": "10"
+        }
+    ],
+    "Software": {
+        "MinimumVersion": "2.9"
+    },
+    "StreamdeckID": "com.iu2frl.mqtt"
+}

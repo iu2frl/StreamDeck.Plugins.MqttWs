@@ -1,0 +1,33 @@
+{
+  "Description": "Send simple payloads to any WS MQTT Server.",
+  "Name": "iu2frl MQTT Stream Deck Client",
+  "Category": "IU2FRL MQTT",
+  "com.iu2frl.mqtt.btnAction": {
+    "Name": "MQTT Button action",
+    "Tooltip": "Send payload via MQTT"
+  },
+  "com.iu2frl.mqtt.knbAction": {
+    "Name": "MQTT Knob action",
+    "Tooltip": "Send payload via MQTT"
+  },
+  "Localization": {
+    "MQTTSettings": "MQTT Settings",
+    "SaveSettings": "Save settings",
+    "Save": "Save",
+    "Message1": "Button press",
+    "Message2": "Button release",
+    "Message3": "Knob clockwise",
+    "Message4": "Knob counter clockwise",
+    "Topic": "Topic",
+    "Payload": "Payload",
+    "ClientID": "Client ID",
+    "Use SSL": "Use SSL",
+    "Yes": "Yes",
+    "No": "No",
+    "Username": "Username",
+    "Password": "Password",
+    "Port": "Port",
+    "Broker": "Broker",
+    "Retain": "Retain"
+  }
+}
