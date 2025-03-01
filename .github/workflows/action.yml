@@ -25,7 +25,7 @@ jobs:
             - name: Update manifest.json version
               shell: pwsh
               run: |
-                $manifestPath = "com.iu2frl.mqttsdPlugin/manifest.json"
+                $manifestPath = "com.iu2frl.mqtt.sdPlugin/manifest.json"
                 $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
                 $manifest.Version = "${{ env.VERSION }}"
                 $manifest | ConvertTo-Json -Depth 10 | Set-Content $manifestPath -Encoding UTF8
@@ -34,20 +34,20 @@ jobs:
               shell: pwsh
               run: |
                 # Create the plugin package (.streamDeckPlugin)
-                $folderToZip = "com.iu2frl.mqttsdPlugin"
-                $outputFile = "com.iu2frl.mqttsdPlugin-${{ env.VERSION }}.streamDeckPlugin"
+                $folderToZip = "com.iu2frl.mqtt.sdPlugin"
+                $outputFile = "com.iu2frl.mqtt.sdPlugin-${{ env.VERSION }}.streamDeckPlugin"
                 
                 Compress-Archive -Path "$folderToZip\*" -DestinationPath "$outputFile" -Force
                 
                 # Create a regular zip for manual installation
-                $manualZip = "com.iu2frl.mqttsdPlugin-${{ env.VERSION }}-manual.zip"
+                $manualZip = "com.iu2frl.mqtt.sdPlugin-${{ env.VERSION }}-manual.zip"
                 Compress-Archive -Path "$folderToZip\*" -DestinationPath "$manualZip" -Force
 
             - name: Upload plugin to release
               uses: softprops/action-gh-release@v1
               with:
                 files: |
-                    com.iu2frl.mqttsdPlugin-${{ steps.get_version.outputs.version }}.streamDeckPlugin
-                    com.iu2frl.mqttsdPlugin-${{ steps.get_version.outputs.version }}-manual.zip
+                    com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}.streamDeckPlugin
+                    com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}-manual.zip
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
