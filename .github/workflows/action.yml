@@ -43,11 +43,22 @@ jobs:
                 $manualZip = "com.iu2frl.mqtt.sdPlugin-${{ env.VERSION }}-manual.zip"
                 Compress-Archive -Path "$folderToZip\*" -DestinationPath "$manualZip" -Force
 
-            - name: Upload plugin to release
-              uses: softprops/action-gh-release@v1
-              with:
-                files: |
-                    com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}.streamDeckPlugin
-                    com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}-manual.zip
+            - name: Upload StreamDeck plugin Asset
+              uses: actions/upload-release-asset@v1
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ github.event.release.upload_url }}
+                asset_path: com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}.streamDeckPlugin
+                asset_name: com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}.streamDeckPlugin
+                asset_content_type: application/zip
+
+            - name: Upload ZIP plugin Asset
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                upload_url: ${{ github.event.release.upload_url }}
+                asset_path: com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}-manual.zip
+                asset_name: com.iu2frl.mqtt.sdPlugin-${{ steps.get_version.outputs.version }}-manual.zip
+                asset_content_type: application/zip
