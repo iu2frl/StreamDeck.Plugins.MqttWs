@@ -17,6 +17,14 @@ A lightweight Stream Deck plugin that allows sending MQTT messages over WebSocke
 2. Double-click the `.streamDeckPlugin` file to install it on your Stream Deck software
 3. The plugin should appear in your actions list under the "IU2FRL MQTT" category
 
+For other clones (like the Ajazz AKP03 keypad), a manual installation is required:
+
+1. Downlaod the latest release from the [releases page](https://github.com/iu2frl/StreamDock.Plugins.MqttWs/releases)
+    - Select the `-manual.zip` file
+2. Unzip the file to the software's plugin folder
+    - Windows: `%appdata%\HotSpot\StreamDock\Plugins`
+3. Restart the AJAZZ Stream Dock software
+
 ## Button Configuration
 
 The button action allows you to send MQTT messages when a button is pressed or released:
